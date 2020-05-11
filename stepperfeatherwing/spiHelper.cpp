@@ -42,8 +42,3 @@ void sendSpiDataToTMC(unsigned long address, unsigned long datagram, int csPin, 
      Serial.println(address,HEX);
   }
 }
-
-void PrintHex40(uint8_t stat, uint32_t data)
-{
-
-}
