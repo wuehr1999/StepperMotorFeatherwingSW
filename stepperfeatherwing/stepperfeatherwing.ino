@@ -8,6 +8,9 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  tmc.move(51200, false);
+  delay(20000);
+  tmc.move(0, false);
+  delay(20000);
 
 }
