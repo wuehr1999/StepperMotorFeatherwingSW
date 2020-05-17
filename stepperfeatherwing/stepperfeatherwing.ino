@@ -20,11 +20,11 @@ void setup() {
 }
 
 void loop() {
-  tmc.move(51200, false);
+  tmc.move(51200, false); // should be one turn with 1.8 degrees and 256 micro steps
   digitalWrite(LED_BUILTIN, HIGH);
-  delay(20000);
-  tmc.move(0, false);
+  delay(4000);
+  tmc.move(0, false); // should be one turn back with 1.8 degrees and 256 micro steps
   digitalWrite(LED_BUILTIN, LOW);
-  delay(20000);
+  delay(4000);
 
 }
