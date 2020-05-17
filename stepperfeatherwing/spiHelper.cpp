@@ -2,12 +2,12 @@
 
 void setupSpiForTMC()
 {
+  SPI.begin();      // begin needs to be at the beginning
   SPI.setBitOrder(MSBFIRST);
   SPI.setClockDivider(SPI_CLOCK_DIV8);
   SPI.setDataMode(SPI_MODE3);
-  SPI.begin();
 
-  Serial.begin(9600);
+//  Serial.begin(9600); // should be configured in main programm
 }
 
 void sendSpiDataToTMC(unsigned long address, unsigned long datagram, int csPin, bool sendSerial)
