@@ -16,6 +16,8 @@ void sendSpiDataToTMC(unsigned long address, unsigned long datagram, int csPin, 
   uint8_t stat;
   unsigned long data;
 
+  SPI.beginTransaction (SPISettings (100000, MSBFIRST, SPI_MODE3));
+
   digitalWrite(csPin,LOW);
   delayMicroseconds(10);
 
@@ -29,6 +31,7 @@ void sendSpiDataToTMC(unsigned long address, unsigned long datagram, int csPin, 
   data <<= 8;
   data |= SPI.transfer((datagram) & 0xff);
   digitalWrite(csPin,HIGH);
+  SPI.endTransaction ();         // transaction over
 
   if(sendSerial)
   {

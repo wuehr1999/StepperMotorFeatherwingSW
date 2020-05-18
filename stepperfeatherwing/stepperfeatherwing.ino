@@ -1,13 +1,19 @@
 #include "tmc5130.h"
 
-TMC5130 tmc1(5); // stepper 1
-TMC5130 tmc2(4); // stepper 2
+// for Arduino MKR WiFi 1010 (on adapter)
+//TMC5130 tmc1(5); // stepper 1
+//TMC5130 tmc2(4); // stepper 2
+
+// for Adafruit nRF52832 Bluefruit Feather
+TMC5130 tmc1(27); // stepper 1
+TMC5130 tmc2(30); // stepper 2
+
 #define EMERGENCYSTOP A4
 
 //returns the input voltage
 float inputvoltage(void)
 {
-  return (float)analogRead(0)/1024.0*3.3*16;
+  return (float)analogRead(A0)/1024.0*3.3*16;
 }
 
 //returns false if emergency button is not activated
