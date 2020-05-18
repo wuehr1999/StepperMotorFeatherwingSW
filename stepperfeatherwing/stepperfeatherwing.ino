@@ -4,6 +4,12 @@ TMC5130 tmc1(5); // stepper 1
 TMC5130 tmc2(4); // stepper 2
 #define EMERGENCYSTOP A4
 
+//returns the input voltage
+float inputvoltage(void)
+{
+  return (float)analogRead(0)/1024.0*3.3*16;
+}
+
 //returns false if emergency button is not activated
 bool emergencybutton(void)
 {
@@ -29,6 +35,9 @@ void setup() {
 }
 
 void loop() {
+  Serial.print("input voltage: ");    
+  Serial.println(inputvoltage());    
+
   if(emergencybutton())
   {
     Serial.println("emergency button active");    
