@@ -1,12 +1,12 @@
 #include "tmc5130.h"
 
 // for Arduino MKR WiFi 1010 (on adapter)
-//TMC5130 tmc1(5); // stepper 1
-//TMC5130 tmc2(4); // stepper 2
+TMC5130 tmc1(5); // stepper 1
+TMC5130 tmc2(4); // stepper 2
 
 // for Adafruit nRF52832 Bluefruit Feather
-TMC5130 tmc1(27); // stepper 1
-TMC5130 tmc2(30); // stepper 2
+//TMC5130 tmc1(27); // stepper 1
+//TMC5130 tmc2(30); // stepper 2
 
 #define EMERGENCYSTOP A4
 
