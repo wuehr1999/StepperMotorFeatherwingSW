@@ -27,11 +27,12 @@ void TMC5130::begin()
   sendSpiDataToTMC(0xA5, 0x000186A0, csPin, true);  //write V1
   sendSpiDataToTMC(0xA6, 0x0000C350, csPin, true);  //write acceleration max, was 0xC350=50000
 //  sendSpiDataToTMC(0xA6, 0x00000100, csPin, true);  // acceleration max, was 0xC350=50000
-  sendSpiDataToTMC(0xA7, 0x000186A0, csPin, true);  //write VMAX
+//  sendSpiDataToTMC(0xA7, 0x000186A0, csPin, true);  //write VMAX
   sendSpiDataToTMC(0xA8, 0x000002BC, csPin, true);  //write DMAX=700
   sendSpiDataToTMC(0xAA, 0x00000578, csPin, true);  //write D1
   sendSpiDataToTMC(0xAB, 0x0000000A, csPin, true);  //write VSTOP
-  sendSpiDataToTMC(0xA0, 0x00000000, csPin, true);  //write RAMPMODE=0
+//  sendSpiDataToTMC(0xA0, 0x00000000, csPin, true);  //write RAMPMODE=0
+  sendSpiDataToTMC(0xA0, 0x00000001, csPin, true);  //write RAMPMODE=1
   sendSpiDataToTMC(0xA1, 0x00000000, csPin, true);
   sendSpiDataToTMC(0xAD, 0x00000000, csPin, true);
   sendSpiDataToTMC(0x01, 0x00000000, csPin, true); //read GSTAT
@@ -51,4 +52,10 @@ void TMC5130::move(unsigned long steps, bool backwards)
     sendSpiDataToTMC(0x21, 0x00000000, csPin, true);
     sendSpiDataToTMC(0xAD, steps, csPin, true);
   }
+}
+
+void TMC5130::speed(unsigned long speed)
+{
+//  sendSpiDataToTMC(0x21, 0x00000000, csPin, true);
+  sendSpiDataToTMC(0xA7, speed, csPin, true);
 }

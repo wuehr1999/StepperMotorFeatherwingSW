@@ -50,12 +50,27 @@ void loop() {
   }
   else
   {
-    tmc1.move(51200, false); // should be one turn with 1.8 degrees and 256 micro steps
-    tmc2.move(51200, false); // should be one turn with 1.8 degrees and 256 micro steps
+//    tmc1.move(51200, false); // should be one turn with 1.8 degrees and 256 micro steps
+//    tmc2.move(51200, false); // should be one turn with 1.8 degrees and 256 micro steps
+//    digitalWrite(LED_BUILTIN, HIGH);
+//    delay(4000);
+//    tmc1.move(0, false); // should be one turn back with 1.8 degrees and 256 micro steps
+//    tmc2.move(0, false); // should be one turn back with 1.8 degrees and 256 micro steps
+//    digitalWrite(LED_BUILTIN, LOW);
+    tmc1.speed(30000); // should be one turn with 1.8 degrees and 256 micro steps
+    tmc2.speed(30000); // should be one turn with 1.8 degrees and 256 micro steps
     digitalWrite(LED_BUILTIN, HIGH);
-    delay(4000);
-    tmc1.move(0, false); // should be one turn back with 1.8 degrees and 256 micro steps
-    tmc2.move(0, false); // should be one turn back with 1.8 degrees and 256 micro steps
+    delay(2000);
+    tmc1.speed(100000); // should be one turn with 1.8 degrees and 256 micro steps
+    tmc2.speed(100000); // should be one turn with 1.8 degrees and 256 micro steps
+    digitalWrite(LED_BUILTIN, LOW);
+    delay(2000);
+    tmc1.speed(10000); // should be one turn with 1.8 degrees and 256 micro steps
+    tmc2.speed(10000); // should be one turn with 1.8 degrees and 256 micro steps
+    digitalWrite(LED_BUILTIN, HIGH);
+    delay(2000);
+    tmc1.speed(00000); // should be one turn with 1.8 degrees and 256 micro steps
+    tmc2.speed(00000); // should be one turn with 1.8 degrees and 256 micro steps
     digitalWrite(LED_BUILTIN, LOW);
   }
   delay(4000);

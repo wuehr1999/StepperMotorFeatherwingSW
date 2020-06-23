@@ -11,6 +11,7 @@ public:
   void begin();
 
   void move(unsigned long steps, bool backwards);
+  void speed(unsigned long speed);
   
 private:
   int csPin;
