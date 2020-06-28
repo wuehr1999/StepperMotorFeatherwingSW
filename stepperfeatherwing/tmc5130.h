@@ -29,6 +29,9 @@
 #define TMC5130_TZEROWAIT  0x2C
 #define TMC5130_XTARGET    0x2D
 
+#define TMC5130_CHOPCONF   0x6C
+#define TMC5130_COOLCONF   0x6D
+
 #include "spiHelper.h"
 
 class TMC5130
@@ -40,6 +43,7 @@ public:
 
   void move(unsigned long steps, bool backwards);
   void speed(unsigned long speed, bool direction);
+  void readtstep(void);
   
 private:
   int csPin;
